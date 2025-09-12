@@ -54,3 +54,4 @@ htmlcov/
 # Other tools
 .tox/
 .nox/
+.env
