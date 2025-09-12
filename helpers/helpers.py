@@ -11,7 +11,7 @@ def assets_url(route) -> str:
     return site_url("assets/" + route)
 
 
-def random_element(array):
+def random_element(array) -> str:
     shuffled = array[:]
     random.shuffle(shuffled)
     return shuffled.pop()
