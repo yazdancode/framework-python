@@ -1,10 +1,11 @@
 import random
 
-from constants import Constants
+from constants.Constants import get_env_variable
 
 
 def site_url(route) -> str:
-    return f"{Constants.base_url}{route}"
+    base_url = get_env_variable("HOST")
+    return f"{base_url}{route}"
 
 
 def assets_url(route) -> str:

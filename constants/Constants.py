@@ -2,7 +2,9 @@ import os
 
 from dotenv import load_dotenv
 
-dotenv_path = os.path.join(os.path.dirname(__file__), "..", ".env")
-load_dotenv(dotenv_path)
 
-base_url = os.getenv("HOST")
+def get_env_variable(key, env_path=None):
+    if env_path is None:
+        env_path = os.path.join(os.path.dirname(__file__), "..", ".env")
+    load_dotenv(env_path)
+    return os.getenv(key)
