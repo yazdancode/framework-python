@@ -1,12 +1,19 @@
-class Cureency:
+from constants.Constants import CurrencyUnit
+
+
+class Currency:
     @staticmethod
-    def format_price_in_hezar_toman(amount) -> int:
-        return amount / 1000
+    def convert(amount: int, unit: CurrencyUnit) -> float:
+        if unit == CurrencyUnit.RIAL:
+            return amount * 10
+        elif unit == CurrencyUnit.TOMAN:
+            return amount
+        elif unit == CurrencyUnit.HEZAR_TOMAN:
+            return amount / 1000
+        else:
+            raise ValueError("واحد پولی نامعتبر است")
 
     @staticmethod
-    def format_price_in_toman(amount) -> int:
-        return amount
-
-    @staticmethod
-    def format_price_in_rial(amount) -> int:
-        return amount * 10
+    def format_string(amount: int, unit: CurrencyUnit) -> str:
+        converted = Currency.convert(amount, unit)
+        return f"{converted:,.0f} {unit.value}"
