@@ -1,3 +1,8 @@
+import os
+
+from configs.Config import Config
+
+
 class Url:
     @staticmethod
     def current() -> str:
